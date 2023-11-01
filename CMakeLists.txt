@@ -8,7 +8,7 @@ set(VERSION_PLAIN ${VERSION_MAJOR}.${VERSION_MINOR_0}.${VERSION_MINOR_1})
 
 
 
-add_subdirectory(fltk)
+add_subdirectory(3rdparty/fltk)
 
 # add_subdirectory(libgit2)
 
