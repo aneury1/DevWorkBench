@@ -1,13 +1,12 @@
-//#include "DevWindow.h"
+#include "DevWindow.h"
 #include <iostream>
 
 
 int main(int argc, char *argv[])
 {
 
-  std::cout <<"CALNMG";
-   /// DevWorkSpace::DevWindow window;
- ///   return window.run(argc,argv);
+  DevWorkSpace::DevWindow window;
+  return window.run(argc,argv);
 }
 
 

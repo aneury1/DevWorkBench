@@ -6,9 +6,15 @@ set(VERSION_MINOR_0 5)
 set(VERSION_MINOR_1 0)
 set(VERSION_PLAIN ${VERSION_MAJOR}.${VERSION_MINOR_0}.${VERSION_MINOR_1})
 
+set(FLTK_INCLUDE_DIR 3rdparty/fltk)
+set(DEVWINDOWSRC 
+    ${CMAKE_SOURCE_DIR}/src/Window/DevWindow.cpp
+)
 
 
-add_subdirectory(3rdparty/fltk)
+
+
+# add_subdirectory(3rdparty/fltk)
 
 # add_subdirectory(libgit2)
 
@@ -16,7 +22,11 @@ message(${CMAKE_SOURCE_DIR})
 
 
 
-add_executable(${PROJECT_NAME} WIN32 main.cpp)
+add_executable(${PROJECT_NAME}
+WIN32 
+main.cpp
+${DEVWINDOWSRC}
+)
 
 
 set (OPTIONAL_LIBS)
@@ -37,8 +47,8 @@ endif (WIN32)
 
 
 
-include_directories(${PROJECT_SOURCE_DIR}/include)
-include_directories(${FLTK_INCLUDE_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/includes)
+# include_directories(${FLTK_INCLUDE_DIR})
 
 target_link_libraries(
     ${PROJECT_NAME} 

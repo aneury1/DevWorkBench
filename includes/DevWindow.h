@@ -1,7 +1,7 @@
 #pragma once
-#include <Fl/Fl_Window.H>
+#include <FL/Fl_Window.H>
 
-#include "TopMenuOption.H"
+#include "TopMenuOption.h"
 
 namespace DevWorkSpace
 {
@@ -12,7 +12,7 @@ class DevWindow{
 
       DevWindow getWindow();
       DevWindow show();
-      DevWindow addMenuOption(const TopMenuOption *opt);
+      DevWindow addMenuOption(const DevWorkSpace::TopMenuOption *opt);
       int run(int argc, char **argv);
 
    protected:
