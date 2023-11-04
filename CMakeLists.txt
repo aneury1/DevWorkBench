@@ -13,6 +13,9 @@ set(DEVWINDOWSRC
     ${CMAKE_SOURCE_DIR}/src/Window/DevWindow.cpp
 )
 
+set(DEVUISTYLE 
+    ${CMAKE_SOURCE_DIR}/src/Ui/Style.cpp
+)
 
 
 # add_subdirectory(3rdparty/fltk-1.3.8)
@@ -28,6 +31,7 @@ message(${CMAKE_SOURCE_DIR})
 add_executable(${PROJECT_NAME}
 WIN32 
 main.cpp
+${DEVUISTYLE}
 ${DEVWINDOWSRC}
 )
 
