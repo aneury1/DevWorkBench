@@ -6,15 +6,18 @@ set(VERSION_MINOR_0 5)
 set(VERSION_MINOR_1 0)
 set(VERSION_PLAIN ${VERSION_MAJOR}.${VERSION_MINOR_0}.${VERSION_MINOR_1})
 
-set(FLTK_INCLUDE_DIR 3rdparty/fltk)
+include(cmake/UpdateSubmodule.cmake)
 
+
+set(FLTK_INCLUDE_DIR 3rdparty/fltk)
 
 set(DEVWINDOWSRC 
     ${CMAKE_SOURCE_DIR}/src/Window/DevWindow.cpp
+    ${CMAKE_SOURCE_DIR}/src/Window/Tab.cpp
 )
 
 set(DEVUISTYLE 
-    ${CMAKE_SOURCE_DIR}/src/Ui/Style.cpp
+    ${CMAKE_SOURCE_DIR}/src/Window/Style.cpp
 )
 
 
@@ -64,7 +67,7 @@ target_link_libraries(
     ${PROJECT_NAME} 
 
     xcb
-	Xext
+	  Xext
     X11
     fltk
     fltk_forms
@@ -74,26 +77,31 @@ target_link_libraries(
 
 
 
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
-)
-# For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
+include(CTest)
+add_subdirectory(external)
+add_subdirectory(test)
 
 
-enable_testing()
+# include(FetchContent)
+# FetchContent_Declare(
+#   googletest
+#   URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+# )
+# # For Windows: Prevent overriding the parent project's compiler/linker settings
+# set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+# FetchContent_MakeAvailable(googletest)
 
-add_executable(
-  hello_test
-  test/testmain.cc
-)
-target_link_libraries(
-  hello_test
-  GTest::gtest_main
-)
 
-include(GoogleTest)
-gtest_discover_tests(hello_test)
+# enable_testing()
+
+# add_executable(
+#   hello_test
+#   test/testmain.cc
+# )
+# target_link_libraries(
+#   hello_test
+#   GTest::gtest_main
+# )
+
+# include(GoogleTest)
+# gtest_discover_tests(hello_test)

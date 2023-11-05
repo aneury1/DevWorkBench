@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-   return DevWorkSpace::DevWindow::get()->showWindow();
+   return DevWindow::get()->showWindow();
 }
 
 

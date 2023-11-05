@@ -23,7 +23,23 @@ cmake ..
 make
 ```
 
+##### Editor 
+this feature require that the application could work as single editor, you can edit text files in general, represented by ascii or UTF-x
+
+##### Style System
+
+
+#### Tabs
+
 
 ##### Plugin System
 
 there is not definition of this yet.
+
+
+
+##### Testing required ctest 
+
+```
+ctest --test-dir <BUILD_DIR> --output-on-failure -j12
+```
